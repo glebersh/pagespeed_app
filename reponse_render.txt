@@ -1,0 +1,21 @@
+loadingExp + origin loadingExp
+[
+  loading Exp - id,
+  lh - cat - score [performance ] = number  - high/medium/slow,
+  LCP FCP FID  ETFB EINP CLSS percentile categ --- loading EXP + overall
+  LCP FCP FID  ETFB EINP CLSS percentile categ --- origin loading EXP + overall
+]
+lighthouse
+[
+  audits {
+      score = score * 100, 
+      tooltip = description,
+      ?explanation = explanation,
+      title = test title,
+      
+
+    }
+
+]
+
+timestamp full

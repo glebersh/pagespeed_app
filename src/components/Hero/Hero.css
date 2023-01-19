@@ -1,0 +1,17 @@
+.header-enter {
+  opacity: 0;
+}
+
+.header-enter-active {
+  opacity: 1;
+  transition: opacity 3000ms;
+}
+
+.header-exit {
+  opacity: 1;
+}
+
+.header-exit-active {
+  opacity: 0;
+  transition: opacity 3000ms;
+}
