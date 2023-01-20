@@ -8,7 +8,6 @@ const App: React.FC = () => {
   return (
     <>
       <Hero />
-      <MainBlock />
       <TestingBlock />
       <ResultsBlock />
     </>

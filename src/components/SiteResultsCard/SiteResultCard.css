@@ -16,8 +16,8 @@
 }
 
 .cls_line {
-  background: linear-gradient(90deg, rgb(36, 226, 45) 85%,
-      rgb(255, 225, 56) 85% 90%, rgb(241, 21, 65) 90% 100%);
+  background: linear-gradient(90deg, rgb(36, 226, 45) 33%,
+      rgb(255, 225, 56) 33% 66%, rgb(241, 21, 65) 66% 100%);
 }
 
 .inp_line {

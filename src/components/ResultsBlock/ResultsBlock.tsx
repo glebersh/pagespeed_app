@@ -19,9 +19,9 @@ const ResultsBlock = () => {
         !loading && !error &&
         (
           <Box>
-            {resultArray.map(item =>
+            {resultArray.map((item, index) =>
             (
-              <SiteResultCard {...item} key={item?.id} />
+              <SiteResultCard {...item} key={item?.id} index={index} />
             )
             )}
           </Box>

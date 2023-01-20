@@ -1,5 +1,6 @@
 export type SiteResult = {
   id: string,
+  index: number,
   loadingExperience: {
     metrics: {
       CUMULATIVE_LAYOUT_SHIFT_SCORE: {
@@ -99,11 +100,24 @@ export type LoadingExperience = {
 };
 
 export type LighthouseResult = {
+  index: number,
   data: {
-    audits: {},
+    audits: {
+    },
     categories: {},
     fetchTime: string,
     lighthouseVersion: string,
     timing: {},
   }
+};
+
+export type ScreenshotInfo = {
+  details: {
+    timestamp: number,
+    timing: number,
+    data: string,
+    screenshot?: {
+      data: string,
+    }
+  };
 };
