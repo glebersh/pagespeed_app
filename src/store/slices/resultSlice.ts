@@ -1,31 +1,31 @@
 import { createSlice, createAsyncThunk, PayloadAction, Dispatch } from '@reduxjs/toolkit';
-import { SiteResult } from '../../types/requestResult';
+import { TSiteResult } from '../../types/requestResult';
 
-type ResultState = {
-  resultArray: SiteResult[],
+type TResultState = {
+  resultArray: TSiteResult[],
   loading: boolean,
   error: null | {},
 };
 
-const initialState: ResultState = {
+const initialState: TResultState = {
   resultArray: [],
   loading: false,
   error: null,
 };
 
-type ResponseError = {
+type TResponseError = {
   reponseCode: number,
   errorDescription: string,
 };
 
-type IncomingURL = {
+type TIncomingURL = {
   id: string,
   requestURL: string,
   requestCategory: string,
 };
 
 
-export const getTestsResult = createAsyncThunk<void, IncomingURL[], { dispatch: Dispatch, rejectValue: ResponseError }>(
+export const getTestsResult = createAsyncThunk<void, TIncomingURL[], { dispatch: Dispatch, rejectValue: TResponseError }>(
   'resultsSlice/getTestsResults',
 
   function (requestData, { dispatch, rejectWithValue }) {
@@ -72,7 +72,7 @@ const resultSlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
-    setResult: (state, action: PayloadAction<SiteResult>) => {
+    setResult: (state, action: PayloadAction<TSiteResult>) => {
       if (!state.resultArray.filter(item => item.id === action.payload.id).length) {
         state.resultArray.push(action.payload);
       }

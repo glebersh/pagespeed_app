@@ -1,5 +1,4 @@
-import Hero from "../Hero";
-import MainBlock from "../Main/Main";
+import Header from "../Header";
 import ResultsBlock from "../ResultsBlock";
 import TestingBlock from "../TestingBlock/TestingBlock";
 import './App.css';
@@ -7,7 +6,7 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <>
-      <Hero />
+      <Header />
       <TestingBlock />
       <ResultsBlock />
     </>

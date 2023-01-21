@@ -1,7 +1,7 @@
-export type SiteResult = {
+export type TSiteResult = {
   id: string,
   index: number,
-  loadingExperience: {
+  TLoadingExperience: {
     metrics: {
       CUMULATIVE_LAYOUT_SHIFT_SCORE: {
         percentile: number,
@@ -64,12 +64,14 @@ export type SiteResult = {
     categories: {},
     fetchTime: string,
     lighthouseVersion: string,
-    timing: {},
+    timing: {
+      total: number,
+    },
   },
 };
 
 
-export type LoadingExperience = {
+export type TLoadingExperience = {
   metrics: {
     CUMULATIVE_LAYOUT_SHIFT_SCORE: {
       percentile: number,
@@ -99,7 +101,7 @@ export type LoadingExperience = {
   overall_category: string,
 };
 
-export type LighthouseResult = {
+export type TLighthouseResult = {
   index: number,
   data: {
     audits: {
@@ -107,11 +109,13 @@ export type LighthouseResult = {
     categories: {},
     fetchTime: string,
     lighthouseVersion: string,
-    timing: {},
+    timing: {
+      total: number,
+    },
   }
 };
 
-export type ScreenshotInfo = {
+export type TScreenshotInfo = {
   details: {
     timestamp: number,
     timing: number,
@@ -120,4 +124,9 @@ export type ScreenshotInfo = {
       data: string,
     }
   };
+};
+
+
+export interface TLightHouseResultRest {
+  [parameter: string]: string | number,
 };

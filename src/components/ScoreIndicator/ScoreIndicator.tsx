@@ -1,10 +1,10 @@
 import './ScoreIndicator.css';
 
-type Props = {
+type ScoreProps = {
   score: number | string,
 };
 
-const ScoreIndicator = ({ score }: Props) => {
+const ScoreIndicator = ({ score }: ScoreProps) => {
 
   const determineCategory = (score: number | string) => {
     if (Number(score) * 100 >= 90) {
@@ -13,9 +13,7 @@ const ScoreIndicator = ({ score }: Props) => {
     else if (Number(score) * 100 >= 50 && Number(score) < 90) {
       return 'middle_score';
     }
-    else {
-      return 'low_score';
-    }
+    else return 'low_score';
   };
 
   return (

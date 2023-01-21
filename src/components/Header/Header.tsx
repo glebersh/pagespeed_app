@@ -1,10 +1,10 @@
 import { Box, Button, Flex, Link, Text, useColorMode } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import './Hero.css';
+import './Header.css';
 
 
-const Hero: React.FC = () => {
+const Header: React.FC = () => {
   const headerRef = useRef(null);
   const [animateHeader, setAnimateHeader] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode();
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
             <Text fontSize='5.5em' fontWeight='400' textAlign={'center'} letterSpacing='.2em' mt='300px' textShadow='3px 3px 3px darkgray'>
               Welcome to the PageSpeed Insights
             </Text>
-            <Link fontWeight='300' mb='10em' border='3px solid' p='20px 100px' _hover={{ textDecor: 'none', backgroundColor: '#5abf9d' }}
+            <Link fontWeight='300' mb='10em' border='3px solid' p='20px 100px' _hover={{ textDecor: 'none', backgroundColor: 'primary' }}
               backgroundColor='transparent' fontSize='1.5em' href='#main' className='default-link'>
               Explore
             </Link>
@@ -35,4 +35,4 @@ const Hero: React.FC = () => {
     </Box>
   )
 };
-export default Hero;
+export default Header;

@@ -29,3 +29,13 @@
   background: linear-gradient(90deg, rgb(36, 226, 45) 30%,
       rgb(255, 225, 56) 30% 85%, rgb(241, 21, 65) 85% 100%);
 }
+
+.default_link {
+  text-decoration: none;
+  transition: all 0.33s ease-in-out;
+}
+
+.url_tested_link:hover {
+  color: rgb(64, 64, 218);
+  transition: all 0.33s ease-in-out;
+}
