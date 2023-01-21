@@ -1,21 +1,16 @@
 import { createSlice, createAsyncThunk, PayloadAction, Dispatch } from '@reduxjs/toolkit';
-import { TSiteResult } from '../../types/requestResult';
+import { TFetchError, TSiteResult } from '../../types/requestResult';
 
 type TResultState = {
   resultArray: TSiteResult[],
   loading: boolean,
-  error: null | {},
+  error: null | TFetchError,
 };
 
 const initialState: TResultState = {
   resultArray: [],
   loading: false,
   error: null,
-};
-
-type TResponseError = {
-  reponseCode: number,
-  errorDescription: string,
 };
 
 type TIncomingURL = {
@@ -25,10 +20,10 @@ type TIncomingURL = {
 };
 
 
-export const getTestsResult = createAsyncThunk<void, TIncomingURL[], { dispatch: Dispatch, rejectValue: TResponseError }>(
+export const getTestsResult = createAsyncThunk<void, TIncomingURL[], { dispatch: Dispatch }>(
   'resultsSlice/getTestsResults',
 
-  function (requestData, { dispatch, rejectWithValue }) {
+  function (requestData, { dispatch }) {
     const _api = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
 
     requestData.forEach(async function (params, index) {
@@ -47,11 +42,13 @@ export const getTestsResult = createAsyncThunk<void, TIncomingURL[], { dispatch:
       console.log(_requestURL);
 
       const response = await fetch(_requestURL);
-      if (!response.ok) {
-        return rejectWithValue({
+
+      if (response.status.toString()[0] !== '2') {
+        const Error = {
           reponseCode: response.status,
-          errorDescription: `Server error! Request ended with ${response.status} status`,
-        })
+          errorDescription: `Server error! Request ended with ${response.status} status.`,
+        };
+        dispatch(setError(Error));
       }
       else {
         const data = await response.json();
@@ -79,18 +76,14 @@ const resultSlice = createSlice({
     },
     cleanResult: (state) => {
       state.resultArray = [];
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
     }
   },
   extraReducers: builder => (
     builder
-      .addCase(getTestsResult.rejected,
-        (state, action) => {
-          if (action.payload) {
-            state.error = action.payload
-          } else {
-            state.error = action.error;
-          }
-        })
       .addCase(getTestsResult.pending,
         (state) => {
           state.loading = true;
@@ -103,5 +96,5 @@ const resultSlice = createSlice({
   )
 });
 
-export const { setResult, setLoading, cleanResult } = resultSlice.actions;
+export const { setResult, setLoading, cleanResult, setError } = resultSlice.actions;
 export default resultSlice.reducer;

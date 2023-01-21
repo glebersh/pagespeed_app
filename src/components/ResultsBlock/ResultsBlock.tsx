@@ -9,11 +9,12 @@ import {
   AlertDescription,
 } from '@chakra-ui/react';
 import { useAppSelector } from '../../hooks/useAppSelector';
+import { TFetchError } from '../../types/requestResult';
 import SiteResultCard from '../SiteResultsCard';
 
 const ResultsBlock = () => {
   const isLoading = useAppSelector(state => state.resultReducer.loading);
-  const isError = useAppSelector(state => state.resultReducer.error);
+  const isError: TFetchError | null = useAppSelector(state => state.resultReducer.error);
   const resultData = useAppSelector(state => state.resultReducer.resultArray);
 
   return (
@@ -34,6 +35,7 @@ const ResultsBlock = () => {
           <AlertIcon />
           <AlertTitle>Something went wrong!</AlertTitle>
           <AlertDescription>Please check server response.</AlertDescription>
+          <Text display='block'>{isError?.errorDescription}</Text>
         </Alert>
       }
       {

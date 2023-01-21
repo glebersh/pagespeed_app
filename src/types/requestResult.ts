@@ -1,7 +1,7 @@
 export type TSiteResult = {
   id: string,
   index: number,
-  TLoadingExperience: {
+  loadingExperience: {
     metrics: {
       CUMULATIVE_LAYOUT_SHIFT_SCORE: {
         percentile: number,
@@ -129,4 +129,9 @@ export type TScreenshotInfo = {
 
 export interface TLightHouseResultRest {
   [parameter: string]: string | number,
+};
+
+export type TFetchError = {
+  responseCode: number,
+  errorDescription: string,
 };

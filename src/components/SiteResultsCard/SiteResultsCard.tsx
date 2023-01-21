@@ -6,7 +6,7 @@ import LighthouseResultBlock from "../LighthouseResult";
 
 
 const SiteResultCard: React.FC<TSiteResult> = (props: TSiteResult) => {
-  const { id, TLoadingExperience, originLoadingExperience, lighthouseResult } = props;
+  const { id, loadingExperience, originLoadingExperience, lighthouseResult } = props;
 
   return (
     <Box m='0 auto' w='90%'>
@@ -16,7 +16,7 @@ const SiteResultCard: React.FC<TSiteResult> = (props: TSiteResult) => {
           {id}
         </a>
       </Text>
-      <LoadingExperienceBlock categoryName='Loading Experience' data={TLoadingExperience} />
+      <LoadingExperienceBlock categoryName='Loading Experience' data={loadingExperience} />
       <LoadingExperienceBlock categoryName='Origin Loading Experience' data={originLoadingExperience} />
       <LighthouseResultBlock data={lighthouseResult} index={props.index} />
     </Box>
