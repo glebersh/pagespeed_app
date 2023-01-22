@@ -76,7 +76,7 @@ const TestingBlock: React.FC = () => {
     setRequestData(newState);
   };
 
-  const formValidation = (): void => {
+  const formValidation = (): boolean => {
     function isValidHttpUrl(link: string): boolean {
       let url;
       try {
@@ -87,9 +87,10 @@ const TestingBlock: React.FC = () => {
       return url.protocol === "http:" || url.protocol === "https:";
     }
 
-    const unvalidatedData = requestData.filter(item => !isValidHttpUrl(item.requestURL));
-    if (!unvalidatedData.length) {
+    const invalidData = requestData.filter(item => !isValidHttpUrl(item.requestURL));
+    if (!invalidData.length) {
       setCompleted(true);
+      return true;
     }
     else {
       const inputs = inputsRef!.current!.children;
@@ -106,12 +107,14 @@ const TestingBlock: React.FC = () => {
           setTimeout(() => currentInput.style.borderColor = 'inherit', 5000);
         }
       }
+      setCompleted(false);
+      return false;
     }
   };
 
   const getResult = (): void => {
-    formValidation();
-    if (isFormComplete) {
+    const isValid = formValidation();
+    if (isValid) {
       dispatch(getTestsResult(requestData));
     }
   };

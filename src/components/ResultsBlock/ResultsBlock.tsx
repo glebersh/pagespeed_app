@@ -7,15 +7,36 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Button,
 } from '@chakra-ui/react';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { TFetchError } from '../../types/requestResult';
 import SiteResultCard from '../SiteResultsCard';
+import { useState } from 'react';
+import PaginationBlock from '../PaginationBlock/PaginationBlock';
 
 const ResultsBlock = () => {
   const isLoading = useAppSelector(state => state.resultReducer.loading);
   const isError: TFetchError | null = useAppSelector(state => state.resultReducer.error);
   const resultData = useAppSelector(state => state.resultReducer.resultArray);
+  const [pageIndex, setPage] = useState(0);
+  const currentPage = resultData.length ? [resultData[pageIndex]] : null;
+
+  const changePage = (index: number | string) => {
+    if (index === 'backward') {
+      if (pageIndex !== 0) {
+        setPage(pageIndex - 1);
+      }
+    }
+    else if (index === 'forward') {
+      if (pageIndex !== resultData.length - 1) {
+        setPage(pageIndex + 1);
+      }
+    }
+    else if (typeof index === 'number') {
+      setPage(index);
+    }
+  };
 
   return (
     <>
@@ -39,12 +60,16 @@ const ResultsBlock = () => {
         </Alert>
       }
       {
-        !isLoading && !isError &&
+        !isLoading && !isError && currentPage !== null &&
         (
-          <Box>
-            {resultData.map((test, index) => <SiteResultCard {...test} key={test?.id} index={index} />
-            )}
-          </Box>
+          <Flex direction='column'>
+            <PaginationBlock changePage={changePage} pageIndex={pageIndex} />
+            <Box>
+              {
+                currentPage.map((test, index) => <SiteResultCard {...test} key={test.id} index={index} />)
+              }
+            </Box>
+          </Flex>
         )
       }
     </>
