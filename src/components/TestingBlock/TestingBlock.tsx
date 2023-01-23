@@ -24,6 +24,7 @@ const TestingBlock: React.FC = () => {
 
 
   const addForm = (): TRequestData => {
+    console.log(requestData);
     return {
       id: `url_input_form_${requestData.length}`,
       requestURL: '',
@@ -44,35 +45,15 @@ const TestingBlock: React.FC = () => {
   };
 
   const deleteForm = (index: number): void => {
-    const newState = requestData.filter(item => item.id !== `url_input_form_${index}`);
+    const newState = [...requestData.slice(0, index), ...requestData.slice(index + 1)];
+    newState.forEach((item, index) => item.id = `url_input_form_${index}`);
 
-    newState.forEach(function (item, loopIndx) {
-      const indexNumberIndetifier: number = Number(item.id.match(/\d/gm)![0]);
-
-      // moving values from inputs that comes after deleted element up
-      if (indexNumberIndetifier >= index) {
-        item.id = `url_input_form_${indexNumberIndetifier - 1}`;
-
-        // function to easy target select/input elements from ref
-        const returnInput = (position: number): HTMLInputElement => {
-          return inputsRef!.current!.children[loopIndx + position].children[0].children[1] as HTMLInputElement;
-        };
-
-        const returnSelect = (position: number): HTMLSelectElement => {
-          return inputsRef!.current!.children[loopIndx + position].children[1].children[1].children[0] as HTMLSelectElement;
-        };
-
-        const firstInputTarget = returnInput(1);
-        const nextInputTarget = returnInput(2);
-
-        const firstSelectTarget = returnSelect(1);
-        const nextSelectTarget = returnSelect(2);
-
-        firstInputTarget.value = nextInputTarget.value;
-        firstSelectTarget.value = nextSelectTarget.value;
-      }
-    });
-
+    for (let i = index + 1; i < requestData.length; i++) {
+      const input = inputsRef!.current!.children[i].children[0].children[1] as HTMLInputElement;
+      const select = inputsRef!.current!.children[i].children[1].children[1].children[0] as HTMLSelectElement;
+      input.value = requestData[i].requestURL;
+      select.value = requestData[i].requestCategory;
+    };
     setRequestData(newState);
   };
 
@@ -124,7 +105,7 @@ const TestingBlock: React.FC = () => {
       <Text fontSize='3em' color='primary' textAlign='center' fontWeight='700' mt='1.5em'>Fill up the form to start PageSpeed test</Text>
       {
         [...Array(requestData.length)].map((_, index) =>
-          <UrlForm index={index} addUrl={addUrl} changeCategory={changeCategory} deleteForm={deleteForm} key={`form_${index}`} validated={isFormComplete} />
+          <UrlForm index={index} addUrl={addUrl} changeCategory={changeCategory} deleteForm={deleteForm} key={`form_${index} `} validated={isFormComplete} />
         )
       }
       <Flex align='center' justifyContent='center' w='80%' m='3em auto'>

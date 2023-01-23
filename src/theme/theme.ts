@@ -34,7 +34,7 @@ const theme = extendTheme({
       "900": "#16191D"
     },
     "primary": "#64d2ad",
-    "black": "#1f2937",
+    "black": "#2a2959",
     "pureWhite": "#FFFFFF",
     config: {
       initialColorMode: 'light',

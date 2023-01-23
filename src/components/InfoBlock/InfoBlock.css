@@ -1,0 +1,21 @@
+.info-block-animation-enter {
+  opacity: 0;
+  transform: translateX(2000px);
+}
+
+.info-block-animation-enter-active {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: transform 2000ms, opacity 2000ms;
+}
+
+.info-block-animation-exit {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.info-block-animation-exit-active {
+  opacity: 0;
+  transform: translateX(2000px);
+  transition: transform 2000ms, opacity 2000ms;
+}

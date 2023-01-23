@@ -1,0 +1,21 @@
+.lighthouse-enter {
+  opacity: 0;
+  transform: translateY(-2000px);
+}
+
+.lighthouse-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: transform 2300ms, opacity 2300ms;
+}
+
+.lighthouse-exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.lighthouse-exit-active {
+  opacity: 0;
+  transform: translateY(2000px);
+  transition: transform 2300ms, opacity 2300ms;
+}

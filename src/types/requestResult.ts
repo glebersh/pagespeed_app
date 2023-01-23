@@ -126,7 +126,6 @@ export type TScreenshotInfo = {
   };
 };
 
-
 export interface TLightHouseResultRest {
   [parameter: string]: string | number,
 };

@@ -3,7 +3,8 @@ import LoadingExperienceBlock from "../LoadingExperience";
 import { TSiteResult } from "../../types/requestResult";
 import './SiteResultCard.css';
 import LighthouseResultBlock from "../LighthouseResult";
-
+import { CSSTransition } from "react-transition-group";
+import { useRef, useState, useEffect } from 'react';
 
 const SiteResultCard: React.FC<TSiteResult> = (props: TSiteResult) => {
   const { id, loadingExperience, originLoadingExperience, lighthouseResult } = props;
@@ -13,7 +14,7 @@ const SiteResultCard: React.FC<TSiteResult> = (props: TSiteResult) => {
       <Text fontSize='1.25em' w='80%' display='block' m='0 auto'>
         Page URL:
         <a href={id} target='_blank' rel="noreferrer" className="default_link url_tested_link">
-          {id}
+          {' ' + id}
         </a>
       </Text>
       <LoadingExperienceBlock categoryName='Loading Experience' data={loadingExperience} />

@@ -39,7 +39,7 @@ const ResultsBlock = () => {
   };
 
   return (
-    <>
+    <Box overflow='hidden'>
       {
         isLoading &&
         <Flex w='30%' m='0 auto' align='center'
@@ -72,7 +72,7 @@ const ResultsBlock = () => {
           </Flex>
         )
       }
-    </>
+    </Box>
   )
 };
 export default ResultsBlock;
