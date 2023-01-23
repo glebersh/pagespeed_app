@@ -22,7 +22,6 @@ const TestingBlock: React.FC = () => {
   const inputsRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
 
-
   const addForm = (): TRequestData => {
     console.log(requestData);
     return {
@@ -102,16 +101,16 @@ const TestingBlock: React.FC = () => {
 
   return (
     <section id="#test" ref={inputsRef}>
-      <Text fontSize='3em' color='primary' textAlign='center' fontWeight='700' mt='1.5em'>Fill up the form to start PageSpeed test</Text>
+      <Text fontSize={{ xs: '2em', lg: '3em' }} color='primary' textAlign='center' fontWeight='700' mt='1.5em'>Fill up the form to start PageSpeed test</Text>
       {
         [...Array(requestData.length)].map((_, index) =>
           <UrlForm index={index} addUrl={addUrl} changeCategory={changeCategory} deleteForm={deleteForm} key={`form_${index} `} validated={isFormComplete} />
         )
       }
-      <Flex align='center' justifyContent='center' w='80%' m='3em auto'>
-        <Button onClick={() => getResult()} minW='200px' variant='outline'>Get result</Button>
-        <Button onClick={() => dispatch(cleanResult())} ml='3em' variant='outline'>Clean results</Button>
-        <Button onClick={() => createForm()} ml='auto' variant='outline'>Add new URL</Button>
+      <Flex align='center' justifyContent={{ xs: 'center', md: 'space-between' }} w='80%' m='3em auto' flexWrap='wrap'>
+        <Button onClick={() => getResult()} variant='outline' w={{ xs: '80%', md: '200px' }}>Get result</Button>
+        <Button onClick={() => dispatch(cleanResult())} ml={{ xs: '0', lg: '3em' }} variant='outline' m={{ xs: '2em auto 0 0', md: 0 }}>Clean results</Button>
+        <Button onClick={() => createForm()} ml={{ xs: 0, lg: 'auto' }} variant='outline' m={{ xs: '2em 0 0 auto', md: 0 }}>Add new URL</Button>
       </Flex>
     </section >
   )

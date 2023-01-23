@@ -25,15 +25,18 @@ const UrlForm = ({ index, addUrl, changeCategory, deleteForm, validated }:
   return (
 
     <CSSTransition nodeRef={formRef} in={isAnimating} timeout={1000} classNames='form'>
-      <Flex key={`url_input_form_${index}`} w='80%' m='1em auto 0' align='center' ref={formRef} opacity={isAnimating ? 1 : 0}>
-        <Box flex='5' ref={urlInputRef}>
+      <Flex key={`url_input_form_${index}`} w={{ xs: '90%', xl: '80%' }} m='1em auto 0'
+        alignItems='center' justifyContent={{ xs: 'center', xl: 'flex-start' }} gap={{ xs: '2em', xl: '4em' }}
+        ref={formRef} opacity={isAnimating ? 1 : 0}
+        flexWrap='wrap'>
+        <Box ref={urlInputRef} w={{ xs: '100%', md: '60%', xxl: '78%' }}>
           <FormLabel htmlFor={`url-input-${index}`} fontSize='20px'>Pass full URL here:</FormLabel>
-          <Input id={`url-input-${index}`} type='text' w='80%'
-            placeholder='e.g. https://developers.google.com' required
+          <Input id={`url-input-${index}`} type='text' w='100%'
+            placeholder='e.g. https://developers.google.com'
             onChange={e => setValue(e.target.value)} />
         </Box>
 
-        <Box flex='1'>
+        <Box>
           <FormLabel htmlFor='category-select' fontSize='20px'>Select test category:</FormLabel>
           <Select defaultValue='performance' id={`category-select-${index}`}
             onChange={e => changeCategory(index, e.target.value)}>
@@ -43,11 +46,11 @@ const UrlForm = ({ index, addUrl, changeCategory, deleteForm, validated }:
         </Box>
 
         <Tooltip label='Delete item'>
-          <DeleteIcon onClick={() => deleteForm(index)} ml='3em' transition='0.33s'
+          <DeleteIcon onClick={() => deleteForm(index)} transition='0.33s' ml={{ xs: 'auto', md: 0 }}
             fontSize='1.25em' _hover={{ color: 'red', transition: '0.33s', cursor: 'pointer' }} />
         </Tooltip>
       </Flex>
-    </CSSTransition>
+    </CSSTransition >
   )
 };
 export default UrlForm;

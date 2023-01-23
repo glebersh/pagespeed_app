@@ -134,3 +134,14 @@ export type TFetchError = {
   responseCode: number,
   errorDescription: string,
 };
+
+export type TThreadTaskItem = {
+  duration: number,
+  startTime: number,
+};
+
+export type TAuditTasksData = {
+  details: {
+    items: TThreadTaskItem[];
+  }
+};

@@ -10,7 +10,7 @@ const SiteResultCard: React.FC<TSiteResult> = (props: TSiteResult) => {
   const { id, loadingExperience, originLoadingExperience, lighthouseResult } = props;
 
   return (
-    <Box m='0 auto' w='90%'>
+    <Box m='0 auto' w={{ xs: '100%', md: '90%' }}>
       <Text fontSize='1.25em' w='80%' display='block' m='0 auto'>
         Page URL:
         <a href={id} target='_blank' rel="noreferrer" className="default_link url_tested_link">

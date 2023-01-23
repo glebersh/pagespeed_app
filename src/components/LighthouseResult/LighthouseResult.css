@@ -6,7 +6,7 @@
 .lighthouse-enter-active {
   opacity: 1;
   transform: translateY(0px);
-  transition: transform 2300ms, opacity 2300ms;
+  transition: transform 2000ms, opacity 2000ms;
 }
 
 .lighthouse-exit {
@@ -17,5 +17,5 @@
 .lighthouse-exit-active {
   opacity: 0;
   transform: translateY(2000px);
-  transition: transform 2300ms, opacity 2300ms;
+  transition: transform 2000ms, opacity 2000ms;
 }

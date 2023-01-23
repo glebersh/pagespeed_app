@@ -29,9 +29,9 @@ const LoadingExperienceBlock = ({ categoryName, data }: { categoryName: string, 
 
   return (
     <CSSTransition nodeRef={resultContainerRef} in={isAnimating} timeout={categoryName === 'Loading Experience' ? 800 : 1500}
-      classNames={categoryName === 'Loading Experience' ? 'loading-experience' : 'origin-loading-experience'} unmountOnExit>
-      <Flex w='80%' m='3em auto' backgroundColor={colorMode === 'light' ? '#F0F3F444' : '#F0F0F012'} ref={resultContainerRef}
-        borderRadius='15px' padding='35px' direction='column' gap='1em'>
+      classNames={categoryName === 'Loading Experience' ? 'loading-experience' : 'origin-loading-experience'}>
+      <Flex w={{ xs: '90%', md: '80%' }} m='3em auto' backgroundColor={colorMode === 'light' ? '#F0F3F444' : '#F0F0F012'} ref={resultContainerRef}
+        borderRadius='15px' padding={{ xs: '10px', md: '35px' }} direction='column' gap='1em'>
         <Tooltip label={categoryName === 'Loading Experience'
           ?
           'Metrics of end users\' page loading experience.'
@@ -40,7 +40,7 @@ const LoadingExperienceBlock = ({ categoryName, data }: { categoryName: string, 
           borderRadius='7px'>
           <Text display='inline-block' w='fit-content' fontSize='1.5em' fontWeight='700'>{categoryName}</Text>
         </Tooltip>
-        <Grid gridTemplateRows='1fr 1fr' gridTemplateColumns='1fr 1fr 1fr'>
+        <Grid gridTemplateRows={{ xxl: '1fr 1fr', xl: '1fr 1fr 1fr' }} gridTemplateColumns={{ xxl: '1fr 1fr 1fr', xl: '1fr 1fr' }} m='0 auto' columnGap='5em'>
 
           <Box mt='2em'>
             <Text display='block' fontSize='20px'>Largest Contentful Paint (LCP): {LARGEST_CONTENTFUL_PAINT_MS?.percentile / 1000} sec.</Text>
