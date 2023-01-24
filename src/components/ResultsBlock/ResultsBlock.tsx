@@ -7,7 +7,6 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
-  Button,
 } from '@chakra-ui/react';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { TFetchError } from '../../types/requestResult';
@@ -20,7 +19,6 @@ const ResultsBlock = () => {
   const isError: TFetchError | null = useAppSelector(state => state.resultReducer.error);
   const resultData = useAppSelector(state => state.resultReducer.resultArray);
   const [pageIndex, setPage] = useState(0);
-  const currentPage = resultData.length ? [resultData[pageIndex]] : null;
 
   const changePage = (index: number | string) => {
     if (index === 'backward') {
@@ -60,13 +58,13 @@ const ResultsBlock = () => {
         </Alert>
       }
       {
-        !isLoading && !isError && currentPage !== null &&
+        !isLoading && !isError && resultData.length &&
         (
           <Flex direction='column'>
             <PaginationBlock changePage={changePage} pageIndex={pageIndex} />
             <Box>
               {
-                currentPage.map((test, index) => <SiteResultCard {...test} key={test.id} index={index} />)
+                [resultData[pageIndex]].map((test, index) => <SiteResultCard {...test} key={test.id} index={index} />)
               }
             </Box>
           </Flex>

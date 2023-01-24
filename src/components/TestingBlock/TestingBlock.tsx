@@ -23,7 +23,6 @@ const TestingBlock: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const addForm = (): TRequestData => {
-    console.log(requestData);
     return {
       id: `url_input_form_${requestData.length}`,
       requestURL: '',
