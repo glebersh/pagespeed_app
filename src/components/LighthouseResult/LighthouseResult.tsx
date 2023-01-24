@@ -1,9 +1,10 @@
-import { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { useState, useRef, useLayoutEffect } from 'react';
 import { TLighthouseResult, TLightHouseResultRest } from '../../types/requestResult';
-import { Flex, useColorMode, Text, Box, Tooltip, List } from '@chakra-ui/react';
+import { Flex, useColorMode, Text, Box } from '@chakra-ui/react';
 import { CSSTransition } from 'react-transition-group';
+import LighthouseCard from '../LighthouseResultCard';
+
 import './LighthouseResult.css';
-import LighthouseCard from '../LighthouseResultCard/LighthouseResultCard';
 
 
 const LighthouseResultBlock = (props: TLighthouseResult) => {

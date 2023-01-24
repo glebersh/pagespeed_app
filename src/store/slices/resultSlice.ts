@@ -39,7 +39,6 @@ export const getTestsResult = createAsyncThunk<void, TIncomingURL[], { dispatch:
         _requestURL += `?${_key}=${_urlParams[_key]}`;
       }
       _requestURL += `&${process.env.REACT_APP_PAGESPEED_API_KEY}`;
-      console.log(_requestURL);
 
       const response = await fetch(_requestURL);
 

@@ -12,7 +12,7 @@ import { useAppSelector } from '../../hooks/useAppSelector';
 import { TFetchError } from '../../types/requestResult';
 import SiteResultCard from '../SiteResultsCard';
 import { useState } from 'react';
-import PaginationBlock from '../PaginationBlock/PaginationBlock';
+import PaginationBlock from '../PaginationBlock';
 
 const ResultsBlock = () => {
   const isLoading = useAppSelector(state => state.resultReducer.loading);

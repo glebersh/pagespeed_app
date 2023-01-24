@@ -1,6 +1,7 @@
-import { Box, Button, Flex, Link, Text, useColorMode } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, useColorMode } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+
 import './Header.css';
 
 
@@ -27,10 +28,6 @@ const Header: React.FC = () => {
               w={{ xs: '90%', md: '80%' }}>
               Welcome to the PageSpeed Insights
             </Text>
-            <Link fontWeight='300' mb='10em' mt='2em' border='3px solid' p='20px 100px' _hover={{ textDecor: 'none', backgroundColor: 'primary' }}
-              backgroundColor='transparent' fontSize='1.5em' href='#test' className='default-link'>
-              Explore
-            </Link>
           </Flex>
         </CSSTransition>
       </header>

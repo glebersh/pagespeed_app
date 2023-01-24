@@ -1,8 +1,9 @@
 import { Box, Flex, Grid, Text, Tooltip, useColorMode } from "@chakra-ui/react";
-import { ChevronDownIcon, ChevronUpIcon, TriangleDownIcon } from "@chakra-ui/icons";
+import { TriangleDownIcon } from "@chakra-ui/icons";
 import { TLoadingExperience } from "../../types/requestResult";
 import { CSSTransition } from "react-transition-group";
 import { useRef, useState, useEffect } from 'react';
+
 import './LoadingExperience.css';
 
 const LoadingExperienceBlock = ({ categoryName, data }: { categoryName: string, data: TLoadingExperience }) => {

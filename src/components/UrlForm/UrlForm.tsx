@@ -2,6 +2,7 @@ import { Flex, Box, Input, Tooltip, FormLabel, Select } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+
 import './UrlForm.css';
 
 const selectOptions = ['accessibility', 'best-practices', 'performance', 'pwa', 'seo'];
@@ -9,8 +10,8 @@ type TAddForm = (index: number, url: string) => void;
 type TChangeCategory = (index: number, category: string) => void;
 type TDeleteForm = (index: number) => void;
 
-const UrlForm = ({ index, addUrl, changeCategory, deleteForm, validated }:
-  { index: number, addUrl: TAddForm, changeCategory: TChangeCategory, deleteForm: TDeleteForm, validated: boolean }) => {
+const UrlForm = ({ index, addUrl, changeCategory, deleteForm }:
+  { index: number, addUrl: TAddForm, changeCategory: TChangeCategory, deleteForm: TDeleteForm }) => {
 
   const [inputValue, setValue] = useState('');
   const urlInputRef = useRef<HTMLDivElement>(null);

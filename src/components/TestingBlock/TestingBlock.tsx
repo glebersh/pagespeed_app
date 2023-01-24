@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { cleanResult, getTestsResult } from "../../store/slices/resultSlice";
 import UrlForm from "../UrlForm";
+
 import './TestingBlock.css';
 
 type TRequestData = {
@@ -103,7 +104,7 @@ const TestingBlock: React.FC = () => {
       <Text fontSize={{ xs: '2em', lg: '3em' }} color='primary' textAlign='center' fontWeight='700' mt='1.5em'>Fill up the form to start PageSpeed test</Text>
       {
         [...Array(requestData.length)].map((_, index) =>
-          <UrlForm index={index} addUrl={addUrl} changeCategory={changeCategory} deleteForm={deleteForm} key={`form_${index} `} validated={isFormComplete} />
+          <UrlForm index={index} addUrl={addUrl} changeCategory={changeCategory} deleteForm={deleteForm} key={`form_${index} `} />
         )
       }
       <Flex align='center' justifyContent={{ xs: 'center', md: 'space-between' }} w='80%' m='3em auto' flexWrap='wrap'>
