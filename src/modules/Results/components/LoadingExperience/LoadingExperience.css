@@ -1,0 +1,45 @@
+.loading-experience-enter {
+  opacity: 0;
+  transform: translateY(-2000px);
+}
+
+.loading-experience-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: transform 800ms, opacity 800ms;
+}
+
+.loading-experience-exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.loading-experience-exit-active {
+  opacity: 0;
+  transform: translateY(2000px);
+  transition: transform 800ms, opacity 800ms;
+}
+
+/*  */
+
+.origin-loading-experience-enter {
+  opacity: 0;
+  transform: translateY(-2000px);
+}
+
+.origin-loading-experience-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: transform 1600ms, opacity 1600ms;
+}
+
+.origin-loading-experience-exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.origin-loading-experience-exit-active {
+  opacity: 0;
+  transform: translateY(2000px);
+  transition: transform 1600ms, opacity 1600ms;
+}
