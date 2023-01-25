@@ -4,7 +4,7 @@
 
 .header-enter-active {
   opacity: 1;
-  transition: all 700ms;
+  transition: all 3000ms;
 }
 
 .header-exit {
@@ -13,5 +13,5 @@
 
 .header-exit-active {
   opacity: 0;
-  transition: all 700ms;
+  transition: all 3000ms;
 }

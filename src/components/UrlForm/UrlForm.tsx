@@ -1,6 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
+
 import { Flex, Box, Input, Tooltip, FormLabel, Select } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
-import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import './UrlForm.css';

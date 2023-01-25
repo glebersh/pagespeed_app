@@ -1,7 +1,7 @@
 import Header from "../Header";
-import InfoBlock from "../InfoBlock/InfoBlock";
+import InfoBlock from "../InfoBlock";
 import ResultsBlock from "../ResultsBlock";
-import TestingBlock from "../TestingBlock/TestingBlock";
+import TestingBlock from "../TestingBlock";
 
 import './App.css';
 

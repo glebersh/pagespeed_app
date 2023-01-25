@@ -1,6 +1,8 @@
-import { Box, Button, Grid, Tooltip } from "@chakra-ui/react";
 import { useState, useRef } from "react";
+
+import { Box, Button, Grid, Tooltip } from "@chakra-ui/react";
 import { CSSTransition } from "react-transition-group";
+
 import { TInfoCardData } from "../../types/infoBlock";
 import InfoCard from "../InfoCard";
 
@@ -93,7 +95,7 @@ const InfoBlock = () => {
       </Tooltip>
       <CSSTransition nodeRef={infoRef} in={isAnimating} timeout={2000} classNames='info-block-animation' unmountOnExit>
         <Grid gridTemplateColumns='1fr' gridAutoRows='1fr 1fr 1fr 1fr 1fr 1fr' gap='2em' ref={infoRef} mt='3em'>
-          {infoBlockContent.map(item => <InfoCard {...item} />)}
+          {infoBlockContent.map(item => <InfoCard {...item} key={`info_block_${item.title}`} />)}
         </Grid>
       </CSSTransition>
     </Box >

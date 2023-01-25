@@ -1,26 +1,24 @@
-import {
-  Box,
-  Flex,
-  Spinner,
-  Text,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-} from '@chakra-ui/react';
-import { useAppSelector } from '../../hooks/useAppSelector';
-import { TFetchError } from '../../types/requestResult';
-import SiteResultCard from '../SiteResultsCard';
 import { useState } from 'react';
+
+import {
+  Box, Flex, Spinner,
+  Text, Alert, AlertIcon,
+  AlertTitle, AlertDescription,
+} from '@chakra-ui/react';
+
+import { TFetchError } from '../../types/requestResult';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { errorSelector, loadingSelector, resultDataSelector } from '../../store/selectors/resultSelectors';
+import SiteResultCard from '../SiteResultsCard';
 import PaginationBlock from '../PaginationBlock';
 
 const ResultsBlock = () => {
-  const isLoading = useAppSelector(state => state.resultReducer.loading);
-  const isError: TFetchError | null = useAppSelector(state => state.resultReducer.error);
-  const resultData = useAppSelector(state => state.resultReducer.resultArray);
+  const isLoading: boolean = useAppSelector(loadingSelector);
+  const isError: TFetchError | null = useAppSelector(errorSelector);
+  const resultData = useAppSelector(resultDataSelector);
   const [pageIndex, setPage] = useState(0);
 
-  const changePage = (index: number | string) => {
+  const changePage = (index: number | string): void => {
     if (index === 'backward') {
       if (pageIndex !== 0) {
         setPage(pageIndex - 1);
@@ -58,7 +56,7 @@ const ResultsBlock = () => {
         </Alert>
       }
       {
-        !isLoading && !isError && resultData.length &&
+        !isLoading && !isError && resultData.length > 0 &&
         (
           <Flex direction='column'>
             <PaginationBlock changePage={changePage} pageIndex={pageIndex} />

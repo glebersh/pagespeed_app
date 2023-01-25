@@ -1,8 +1,8 @@
 import { Box, Text } from "@chakra-ui/react";
-import LoadingExperienceBlock from "../LoadingExperience";
+
 import { TSiteResult } from "../../types/requestResult";
 import LighthouseResultBlock from "../LighthouseResult";
-
+import LoadingExperienceBlock from "../LoadingExperience";
 import './SiteResultCard.css';
 
 const SiteResultCard: React.FC<TSiteResult> = (props: TSiteResult) => {

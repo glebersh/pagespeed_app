@@ -1,9 +1,10 @@
-import { Box, Flex, Grid, Text, Tooltip, useColorMode } from "@chakra-ui/react";
-import { TriangleDownIcon } from "@chakra-ui/icons";
-import { TLoadingExperience } from "../../types/requestResult";
-import { CSSTransition } from "react-transition-group";
 import { useRef, useState, useEffect } from 'react';
 
+import { Box, Flex, Grid, Text, Tooltip, useColorMode } from "@chakra-ui/react";
+import { TriangleDownIcon } from "@chakra-ui/icons";
+import { CSSTransition } from "react-transition-group";
+
+import { TLoadingExperience } from "../../types/requestResult";
 import './LoadingExperience.css';
 
 const LoadingExperienceBlock = ({ categoryName, data }: { categoryName: string, data: TLoadingExperience }) => {
@@ -20,6 +21,7 @@ const LoadingExperienceBlock = ({ categoryName, data }: { categoryName: string, 
 
   const resultContainerRef = useRef<HTMLDivElement>(null);
   const [isAnimating, setAnimation] = useState(false);
+
   useEffect(() => {
     setAnimation(true);
     return () => {

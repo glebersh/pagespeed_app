@@ -6,7 +6,7 @@ type ScoreProps = {
 
 const ScoreIndicator = ({ score }: ScoreProps) => {
 
-  const determineCategory = (score: number | string) => {
+  const determineCategory = (score: number | string): string => {
     if (Number(score) * 100 >= 90) {
       return 'high_score';
     }

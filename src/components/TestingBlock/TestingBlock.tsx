@@ -1,9 +1,10 @@
-import { Flex, Button, Text } from "@chakra-ui/react";
 import { useRef, useState } from "react";
+
+import { Flex, Button, Text } from "@chakra-ui/react";
+
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { cleanResult, getTestsResult } from "../../store/slices/resultSlice";
 import UrlForm from "../UrlForm";
-
 import './TestingBlock.css';
 
 type TRequestData = {
@@ -19,7 +20,6 @@ const TestingBlock: React.FC = () => {
     requestCategory: 'performance',
   }]);
 
-  const [isFormComplete, setCompleted] = useState(false);
   const inputsRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
 
@@ -69,7 +69,6 @@ const TestingBlock: React.FC = () => {
 
     const invalidData = requestData.filter(item => !isValidHttpUrl(item.requestURL));
     if (!invalidData.length) {
-      setCompleted(true);
       return true;
     }
     else {
@@ -87,7 +86,6 @@ const TestingBlock: React.FC = () => {
           setTimeout(() => currentInput.style.borderColor = 'inherit', 5000);
         }
       }
-      setCompleted(false);
       return false;
     }
   };
@@ -108,9 +106,9 @@ const TestingBlock: React.FC = () => {
         )
       }
       <Flex align='center' justifyContent={{ xs: 'center', md: 'space-between' }} w='80%' m='3em auto' flexWrap='wrap'>
-        <Button onClick={() => getResult()} variant='outline' w={{ xs: '80%', md: '200px' }}>Get result</Button>
+        <Button onClick={getResult} variant='outline' w={{ xs: '80%', md: '200px' }}>Get result</Button>
         <Button onClick={() => dispatch(cleanResult())} ml={{ xs: '0', lg: '3em' }} variant='outline' m={{ xs: '2em auto 0 0', md: 0 }}>Clean results</Button>
-        <Button onClick={() => createForm()} ml={{ xs: 0, lg: 'auto' }} variant='outline' m={{ xs: '2em 0 0 auto', md: 0 }}>Add new URL</Button>
+        <Button onClick={createForm} ml={{ xs: 0, lg: 'auto' }} variant='outline' m={{ xs: '2em 0 0 auto', md: 0 }}>Add new URL</Button>
       </Flex>
     </section >
   )
