@@ -2,7 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import App from './components/App';
+import App from './modules/App';
 import theme from './theme/theme';
 import store from './store/index';
 

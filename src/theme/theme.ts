@@ -21,7 +21,7 @@ const theme = extendTheme({
   },
   breakpoints,
   colors: {
-    "primary": "#64d2ad",
+    "primary": "#ff9966",
     config: {
       initialColorMode: 'light',
       useSystemColorMode: false,
