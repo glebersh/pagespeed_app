@@ -14,7 +14,7 @@ type TRangeInputData = {
   step?: number,
 };
 
-const multipliers = [0.002, 0.0009, 0.0035, 0.0006, 0.015, 18.29];
+const multipliers = [0.002, 0.0009, 0.0035, 0.0006, 0.01, 18.29];
 
 const RangeInput = ({ data, inputValues, setValue }:
   {

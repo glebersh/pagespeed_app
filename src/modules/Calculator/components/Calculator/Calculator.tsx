@@ -11,8 +11,8 @@ const inputsData = [
   { title: 'SI (Speed Index)', minValue: 1000, maxValue: 12000, unit: 'ms', weighting: '10%' },
   { title: 'LCP (Largest Contentful Paint)', minValue: 1000, maxValue: 8000, unit: 'ms', weighting: '25%' },
   { title: 'TTI (Time to Interactive)', minValue: 1000, maxValue: 17000, unit: 'ms', weighting: '10%' },
-  { title: 'TBT (Total Blocking Time)', minValue: 1000, maxValue: 3000, unit: 'ms', weighting: '30%' },
-  { title: 'CLS (Cumulative Layout Shift)', minValue: 0.01, maxValue: 0.82, unit: null, weighting: '15%', step: 0.01 },
+  { title: 'TBT (Total Blocking Time)', minValue: 0, maxValue: 3000, unit: 'ms', weighting: '30%' },
+  { title: 'CLS (Cumulative Layout Shift)', minValue: 0.00, maxValue: 0.82, unit: null, weighting: '15%', step: 0.01 },
 ];
 
 export const initialState = {
@@ -22,8 +22,8 @@ export const initialState = {
     { title: 'SI (Speed Index)', value: 1000, weightenedValue: 10 },
     { title: 'LCP (Largest Contentful Paint)', value: 1000, weightenedValue: 25 },
     { title: 'TTI (Time to Interactive)', value: 1000, weightenedValue: 10 },
-    { title: 'TBT (Total Blocking Time)', value: 1000, weightenedValue: 30 },
-    { title: 'CLS (Cumulative Layout Shift)', value: 0.01, weightenedValue: 15 }
+    { title: 'TBT (Total Blocking Time)', value: 0, weightenedValue: 30 },
+    { title: 'CLS (Cumulative Layout Shift)', value: 0.00, weightenedValue: 15 }
   ]
 };
 

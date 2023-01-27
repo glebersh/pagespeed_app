@@ -11,22 +11,22 @@ const options: TRangeValues[] = [{
   values: [
     {
       title: 'FCP (First Contentful Paint)',
-      value: 0,
+      value: 1000,
       weightenedValue: 10,
     },
     {
       title: 'SI (Speed Index)',
-      value: 0,
+      value: 1000,
       weightenedValue: 10,
     },
     {
       title: 'LCP (Largest Contentful Paint)',
-      value: 0,
+      value: 1000,
       weightenedValue: 25,
     },
     {
       title: 'TTI (Time to Interactive)',
-      value: 0,
+      value: 1000,
       weightenedValue: 10,
     },
     {
@@ -78,12 +78,13 @@ const CalculatorSelect = ({ valuesHandler }: { valuesHandler: (items: TRangeValu
             {
               title: 'TBT (Total Blocking Time)',
               value: parseFloat(lighthouseItem['total-blocking-time'].numericValue.toFixed(0)),
-              weightenedValue: 30 - ((parseFloat(lighthouseItem['total-blocking-time'].numericValue.toFixed(0)) - 1000) * 0.015),
+              weightenedValue: 30 - (parseFloat(lighthouseItem['total-blocking-time'].numericValue.toFixed(0)) * 0.01),
             },
             {
               title: 'CLS (Cumulative Layout Shift)',
               value: parseFloat(lighthouseItem['cumulative-layout-shift'].numericValue.toFixed(0)),
-              weightenedValue: 15 - ((parseFloat(lighthouseItem['cumulative-layout-shift'].numericValue.toFixed(0)) - 1000) * 18.29),
+              weightenedValue:
+                15 - (parseFloat(lighthouseItem['cumulative-layout-shift'].numericValue.toFixed(0)) * 18.29),
             },
           ]
         }
