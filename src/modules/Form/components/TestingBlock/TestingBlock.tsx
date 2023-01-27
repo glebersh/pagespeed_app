@@ -99,7 +99,7 @@ const TestingBlock: React.FC = () => {
 
   return (
     <Box ref={inputsRef}>
-      <Text fontSize={{ xs: '2em', lg: '3em' }} color='primary' textAlign='center' fontWeight='700' mt='1.5em'>Fill up the form to start PageSpeed test</Text>
+      <Text fontSize={{ xs: '2em', lg: '3em' }} color='primary' textAlign='center' fontWeight='700'>Fill up the form to start PageSpeed test</Text>
       {
         [...Array(requestData.length)].map((_, index) =>
           <UrlForm index={index} addUrl={addUrl}

@@ -8,8 +8,7 @@ const InfoCard = (props: TInfoCardData) => {
   const { stats_high, stats_medium, stats_low, description, title } = props;
 
   return (
-    <Flex border='1px solid lightgray' borderRadius='15px' p='20px'
-      boxShadow='5px 5px 14px lightgray' w='95%' m='0 auto'
+    <Flex border='1px solid #8d99ae30' borderRadius='15px' p='20px' w='95%' m='0 auto' backgroundColor='#edf2f418'
       direction={{ xs: 'column', lg: 'row' }}>
 
       <Flex direction='column' minW='300px'>

@@ -17,8 +17,6 @@ const LoadingExperienceBlock = ({ categoryName, data }: { categoryName: string, 
     LARGEST_CONTENTFUL_PAINT_MS,
   } = data.metrics;
 
-  const { colorMode, toggleColorMode } = useColorMode();
-
   const resultContainerRef = useRef<HTMLDivElement>(null);
   const [isAnimating, setAnimation] = useState(false);
 
@@ -33,7 +31,7 @@ const LoadingExperienceBlock = ({ categoryName, data }: { categoryName: string, 
   return (
     <CSSTransition nodeRef={resultContainerRef} in={isAnimating} timeout={categoryName === 'Loading Experience' ? 800 : 1500}
       classNames={categoryName === 'Loading Experience' ? 'loading-experience' : 'origin-loading-experience'}>
-      <Flex w={{ xs: '90%', md: '80%' }} m='3em auto' backgroundColor={colorMode === 'light' ? '#F0F3F444' : '#F0F0F012'} ref={resultContainerRef}
+      <Flex w={{ xs: '90%', md: '80%' }} m='3em auto' backgroundColor='#edf2f418' ref={resultContainerRef} border='1px solid #8d99ae30'
         borderRadius='15px' padding={{ xs: '10px', md: '35px' }} direction='column' gap='1em'>
         <Tooltip label={categoryName === 'Loading Experience'
           ?

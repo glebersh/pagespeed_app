@@ -4,16 +4,16 @@ import ResultsBlock from "../Results";
 import TestingBlock from "../Form";
 
 import './App.css';
-import LighthouseCalculator from "../Calculator/components/Calculator/Calculator";
+import LighthouseCalculator from "../Calculator";
 
 const App: React.FC = () => {
   return (
     <>
       <Header />
       <LighthouseCalculator />
-      {/* <TestingBlock />
       <InfoBlock />
-      <ResultsBlock /> */}
+      <TestingBlock />
+      <ResultsBlock />
     </>
   )
 };

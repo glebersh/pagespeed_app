@@ -85,7 +85,7 @@ const PaginationBlock: React.FC<{ changePage: TPaginationFunction, pageIndex: nu
                 paginationRange.map(item =>
                   <Button onClick={() => changePage(item)}
                     key={`pagination_button_${item}`}
-                    border={pageIndex === item ? '2px solid #64d2ad' : 'none'}
+                    border={pageIndex === item ? '2px solid #d90429' : 'none'}
                     variant='outline' w={{ xs: '40px', md: '55px' }} p='0px'
                     h={{ xs: '40px', md: '55px' }} fontSize={pageIndex === item ? '1.5em' : '1.2em'} transition='border-color 0.22s'
                     display='inline-block'

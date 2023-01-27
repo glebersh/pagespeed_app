@@ -31,7 +31,7 @@ const LighthouseResultBlock = (props: TLighthouseResult) => {
 
   return (
     <CSSTransition nodeRef={resultContainerRef} in={isAnimating} timeout={2000} classNames='lighthouse'>
-      <Box backgroundColor={colorMode === 'light' ? '#F0F3F444' : '#F0F0F012'}
+      <Box backgroundColor='#edf2f418' border='1px solid #8d99ae30'
         w={{ xs: '90%', md: '80%' }} m='0 auto' borderRadius='15px' boxSizing='border-box' ref={resultContainerRef}>
         <Flex flexDirection='row' justifyContent='space-between' w='80%' align='center' m='2em auto' pt='2em' flexWrap='wrap'>
           <Text display={{ xs: 'block', xl: 'inline-block' }} w={{ xs: '100%', xl: 'fit-content' }} fontSize='1.5em' fontWeight='700'>Lighthouse</Text>

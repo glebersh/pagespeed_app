@@ -49,7 +49,9 @@ const UrlForm = ({ index, addUrl, changeCategory, deleteForm, isDeleteDisabled }
 
         <Tooltip label='Delete item'>
           <DeleteIcon onClick={() => deleteForm(index)} transition='0.33s' ml={{ xs: 'auto', md: 0 }}
-            fontSize='1.25em' _hover={{ color: 'red', transition: '0.33s', cursor: 'pointer' }} pointerEvents={isDeleteDisabled ? 'none' : 'all'} />
+            fontSize='1.25em' _hover={{ color: 'red', transition: '0.33s', cursor: 'pointer' }}
+            pointerEvents={isDeleteDisabled ? 'none' : 'all'}
+            color={isDeleteDisabled ? 'darkgray' : 'inherit'} />
         </Tooltip>
       </Flex>
     </CSSTransition >

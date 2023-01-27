@@ -88,13 +88,15 @@ const InfoBlock = () => {
 
   return (
     <Box overflow='hidden' w={{ xs: '100%', lg: '80%' }} m='0 auto 2em' p={{ xs: '10px', lg: '30px' }}>
-      <Tooltip label='Read more about upcoming test results'>
-        <Button onClick={() => setAnimation(!isAnimating)} variant='outline'>
-          {isAnimating ? 'Hide data explanation' : 'Show info explanation'}
-        </Button>
-      </Tooltip>
-      <CSSTransition nodeRef={infoRef} in={isAnimating} timeout={2000} classNames='info-block-animation' unmountOnExit>
-        <Grid gridTemplateColumns='1fr' gridAutoRows='1fr 1fr 1fr 1fr 1fr 1fr' gap='2em' ref={infoRef} mt='3em'>
+      <Box mb='2em'>
+        <Tooltip label='Read more about upcoming test results'>
+          <Button onClick={() => setAnimation(!isAnimating)} variant='outline'>
+            {isAnimating ? 'Hide data explanation' : 'Show info explanation'}
+          </Button>
+        </Tooltip>
+      </Box>
+      <CSSTransition nodeRef={infoRef} in={isAnimating} timeout={3000} classNames='info-block-animation' unmountOnExit>
+        <Grid gridTemplateColumns='1fr' gridAutoRows='1fr 1fr 1fr 1fr 1fr 1fr' gap='2em' ref={infoRef}>
           {infoBlockContent.map(item => <InfoCard {...item} key={`info_block_${item.title}`} />)}
         </Grid>
       </CSSTransition>

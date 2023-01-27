@@ -1,0 +1,10 @@
+.overall-animation-enter {
+  opacity: 0;
+  transform: translateY(-2000px);
+}
+
+.overall-animation-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: transform 600ms, opacity 600ms;
+}

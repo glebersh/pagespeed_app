@@ -11,6 +11,7 @@ import { useAppSelector } from '../../../../hooks/useAppSelector';
 import { errorSelector, loadingSelector, resultDataSelector } from '../../../../store/selectors/resultSelectors';
 import SiteResultCard from '../SiteResultsCard';
 import PaginationBlock from '../PaginationBlock';
+import OverallResultsBlock from '../OverallResults/OverallResults';
 
 const ResultsBlock = () => {
   const isLoading: boolean = useAppSelector(loadingSelector);
@@ -58,8 +59,9 @@ const ResultsBlock = () => {
       {
         !isLoading && !isError && resultData.length > 0 &&
         (
-          <Flex direction='column'>
+          <Flex direction='column' pb='50px'>
             <PaginationBlock changePage={changePage} pageIndex={pageIndex} />
+            <OverallResultsBlock pageIndex={pageIndex} />
             <Box>
               {
                 [resultData[pageIndex]].map((test, index) => <SiteResultCard {...test} key={test.id} index={index} />)
