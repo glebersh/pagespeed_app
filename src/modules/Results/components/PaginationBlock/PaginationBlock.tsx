@@ -20,7 +20,7 @@ const PaginationBlock: React.FC<{ changePage: TPaginationFunction, pageIndex: nu
     const [paginationRange, setRange] = useState<number[]>([]);
 
     useLayoutEffect(() => {
-      if (!isLargerThan540) {
+      if (!isLargerThan540 && !isLoading) {
         if (pageIndex >= 2 && pageIndex < resultDataLength - 1) {
           setRange([pageIndex - 1, pageIndex, pageIndex + 1]);
         }
@@ -44,7 +44,7 @@ const PaginationBlock: React.FC<{ changePage: TPaginationFunction, pageIndex: nu
         }
       }
 
-      else if (isLargerThan540) {
+      else if (isLargerThan540 && !isLoading) {
         if (pageIndex >= 3 && pageIndex < resultDataLength - 3) {
           setRange([pageIndex - 2, pageIndex - 1, pageIndex, pageIndex + 1, pageIndex + 2]);
         }
@@ -89,8 +89,7 @@ const PaginationBlock: React.FC<{ changePage: TPaginationFunction, pageIndex: nu
                     variant='outline' w={{ xs: '40px', md: '55px' }} p='0px'
                     h={{ xs: '40px', md: '55px' }} fontSize={pageIndex === item ? '1.5em' : '1.2em'} transition='border-color 0.22s'
                     display='inline-block'
-                    fontWeight='400'
-                  >
+                    fontWeight='400'>
                     {item + 1}
                   </Button>)
               }
@@ -100,7 +99,7 @@ const PaginationBlock: React.FC<{ changePage: TPaginationFunction, pageIndex: nu
               display='inline-block'>
               <ArrowForwardIcon fontSize='20px' position='absolute' left={{ xs: '24%', md: '32%' }} top={{ xs: '20%', md: '32%' }} />
             </Button>
-          </Flex >
+          </Flex>
           : null}
       </>
     )

@@ -39,7 +39,7 @@ const OverallResultsBlock = ({ pageIndex }: { pageIndex: number }) => {
           <Text>Overall Result for: </Text>
           <Text fontWeight='700'>Performance</Text>
         </Box>
-        <ScoreIndicator score={data.performance.score} />
+        <ScoreIndicator score={data?.performance?.score} />
       </Flex>
     </CSSTransition>
   )

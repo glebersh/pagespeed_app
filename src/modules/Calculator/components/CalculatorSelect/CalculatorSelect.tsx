@@ -4,52 +4,15 @@ import { Flex, FormLabel, Select, Tooltip } from '@chakra-ui/react';
 
 import { useAppSelector } from "../../../../hooks/useAppSelector";
 import { resultDataSelector } from "../../../../store/selectors/resultSelectors";
-import { TRangeValues } from '../Calculator/Calculator';
-
-const options: TRangeValues[] = [{
-  optionTitle: 'Default',
-  values: [
-    {
-      title: 'FCP (First Contentful Paint)',
-      value: 1000,
-      weightenedValue: 10,
-    },
-    {
-      title: 'SI (Speed Index)',
-      value: 1000,
-      weightenedValue: 10,
-    },
-    {
-      title: 'LCP (Largest Contentful Paint)',
-      value: 1000,
-      weightenedValue: 25,
-    },
-    {
-      title: 'TTI (Time to Interactive)',
-      value: 1000,
-      weightenedValue: 10,
-    },
-    {
-      title: 'TBT (Total Blocking Time)',
-      value: 0,
-      weightenedValue: 30,
-    },
-
-    {
-      title: 'CLS (Cumulative Layout Shift)',
-      value: 0,
-      weightenedValue: 15,
-    },
-  ]
-}];
+import { TRangeValues, initialState } from '../Calculator/Calculator';
 
 const CalculatorSelect = ({ valuesHandler }: { valuesHandler: (items: TRangeValues) => void }) => {
   const resultData = useAppSelector(resultDataSelector);
-  const [selectOptions, setOptions] = useState<TRangeValues[]>(options);
+  const [selectOptions, setOptions] = useState<TRangeValues[]>([initialState]);
 
   useEffect(() => {
     if (resultData.length !== 0) {
-      const resultOptions = [...selectOptions];
+      const resultOptions = selectOptions.map(item => item);
       for (let i = 0; i < resultData.length; i++) {
         const lighthouseItem: { [key: string]: { numericValue: number } } = resultData[i].lighthouseResult.audits;
         const newOption: TRangeValues = {
@@ -58,22 +21,22 @@ const CalculatorSelect = ({ valuesHandler }: { valuesHandler: (items: TRangeValu
             {
               title: 'FCP (First Contentful Paint)',
               value: parseFloat(lighthouseItem['first-contentful-paint'].numericValue.toFixed(0)),
-              weightenedValue: 10 - ((parseFloat(lighthouseItem['first-contentful-paint'].numericValue.toFixed(0)) - 1000) * 0.002),
+              weightenedValue: 10 - ((parseFloat(lighthouseItem['first-contentful-paint'].numericValue.toFixed(0))) * 0.002),
             },
             {
               title: 'SI (Speed Index)',
               value: parseFloat(lighthouseItem['speed-index'].numericValue.toFixed(0)),
-              weightenedValue: 10 - ((parseFloat(lighthouseItem['speed-index'].numericValue.toFixed(0)) - 1000) * 0.0009),
+              weightenedValue: 10 - ((parseFloat(lighthouseItem['speed-index'].numericValue.toFixed(0))) * 0.0009),
             },
             {
               title: 'LCP (Largest Contentful Paint)',
               value: parseFloat(lighthouseItem['largest-contentful-paint'].numericValue.toFixed(0)),
-              weightenedValue: 25 - ((parseFloat(lighthouseItem['largest-contentful-paint'].numericValue.toFixed(0)) - 1000) * 0.0035),
+              weightenedValue: 25 - ((parseFloat(lighthouseItem['largest-contentful-paint'].numericValue.toFixed(0))) * 0.0035),
             },
             {
               title: 'TTI (Time to Interactive)',
               value: parseFloat(lighthouseItem['interactive'].numericValue.toFixed(0)),
-              weightenedValue: 10 - ((parseFloat(lighthouseItem['interactive'].numericValue.toFixed(0)) - 1000) * 0.0006),
+              weightenedValue: 10 - ((parseFloat(lighthouseItem['interactive'].numericValue.toFixed(0))) * 0.0006),
             },
             {
               title: 'TBT (Total Blocking Time)',
@@ -83,8 +46,7 @@ const CalculatorSelect = ({ valuesHandler }: { valuesHandler: (items: TRangeValu
             {
               title: 'CLS (Cumulative Layout Shift)',
               value: parseFloat(lighthouseItem['cumulative-layout-shift'].numericValue.toFixed(0)),
-              weightenedValue:
-                15 - (parseFloat(lighthouseItem['cumulative-layout-shift'].numericValue.toFixed(0)) * 18.29),
+              weightenedValue: 15 - (parseFloat(lighthouseItem['cumulative-layout-shift'].numericValue.toFixed(0)) * 18.29),
             },
           ]
         }
@@ -93,6 +55,9 @@ const CalculatorSelect = ({ valuesHandler }: { valuesHandler: (items: TRangeValu
         }
       }
       setOptions(resultOptions);
+    } else if (resultData.length === 0) {
+      setOptions([[initialState][0]]);
+      valuesHandler(initialState);
     }
   }, [resultData]);
 

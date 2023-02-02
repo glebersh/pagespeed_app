@@ -7,10 +7,10 @@ import RangeInput from "../RangeInput";
 import ResultIndicator from "../ResultIndicator";
 
 const inputsData = [
-  { title: 'FCP (First Contentful Paint)', minValue: 1000, maxValue: 6000, unit: 'ms', weighting: '10%' },
-  { title: 'SI (Speed Index)', minValue: 1000, maxValue: 12000, unit: 'ms', weighting: '10%' },
-  { title: 'LCP (Largest Contentful Paint)', minValue: 1000, maxValue: 8000, unit: 'ms', weighting: '25%' },
-  { title: 'TTI (Time to Interactive)', minValue: 1000, maxValue: 17000, unit: 'ms', weighting: '10%' },
+  { title: 'FCP (First Contentful Paint)', minValue: 0, maxValue: 6000, unit: 'ms', weighting: '10%' },
+  { title: 'SI (Speed Index)', minValue: 0, maxValue: 12000, unit: 'ms', weighting: '10%' },
+  { title: 'LCP (Largest Contentful Paint)', minValue: 0, maxValue: 8000, unit: 'ms', weighting: '25%' },
+  { title: 'TTI (Time to Interactive)', minValue: 0, maxValue: 17000, unit: 'ms', weighting: '10%' },
   { title: 'TBT (Total Blocking Time)', minValue: 0, maxValue: 3000, unit: 'ms', weighting: '30%' },
   { title: 'CLS (Cumulative Layout Shift)', minValue: 0.00, maxValue: 0.82, unit: null, weighting: '15%', step: 0.01 },
 ];
@@ -18,10 +18,10 @@ const inputsData = [
 export const initialState = {
   optionTitle: 'Default',
   values: [
-    { title: 'FCP (First Contentful Paint)', value: 1000, weightenedValue: 10 },
-    { title: 'SI (Speed Index)', value: 1000, weightenedValue: 10 },
-    { title: 'LCP (Largest Contentful Paint)', value: 1000, weightenedValue: 25 },
-    { title: 'TTI (Time to Interactive)', value: 1000, weightenedValue: 10 },
+    { title: 'FCP (First Contentful Paint)', value: 0, weightenedValue: 10 },
+    { title: 'SI (Speed Index)', value: 0, weightenedValue: 10 },
+    { title: 'LCP (Largest Contentful Paint)', value: 0, weightenedValue: 25 },
+    { title: 'TTI (Time to Interactive)', value: 0, weightenedValue: 10 },
     { title: 'TBT (Total Blocking Time)', value: 0, weightenedValue: 30 },
     { title: 'CLS (Cumulative Layout Shift)', value: 0.00, weightenedValue: 15 }
   ]
